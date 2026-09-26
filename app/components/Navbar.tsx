@@ -3,17 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { usePlan } from "./PlanProvider";
 
-type NavbarProps = {
-  planCount?: number;
-  savedCount?: number;
-};
-
-export default function Navbar({
-  planCount = 0,
-  savedCount = 0,
-}: NavbarProps) {
+export default function Navbar() {
   const pathname = usePathname();
+  const { plan, saved } = usePlan();
 
   const isWorkoutsActive = pathname === "/";
   const isMyPlanActive = pathname === "/my-plan";
@@ -72,7 +66,7 @@ export default function Navbar({
               Plan
             </span>
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#A3E635] text-xs font-extrabold text-[#0F1115]">
-              {planCount}
+              {plan.length}
             </span>
           </Link>
 
@@ -85,7 +79,7 @@ export default function Navbar({
               Saved
             </span>
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/30 text-xs font-extrabold text-white">
-              {savedCount}
+              {saved.length}
             </span>
           </Link>
         </div>
