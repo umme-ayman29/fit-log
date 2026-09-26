@@ -1,15 +1,17 @@
 "use client";
 
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F7F8FA]">
+    <main className="min-h-screen bg-[#0F1115]">
       <Navbar />
 
-      {/* Navbar-এর নিচের content */}
       <section className="pt-[72px]">
-        {/* তোমার Figma অনুযায়ী Hero/বাকি section এখানে থাকবে */}
+        <Hero />
+
+        {/* এরপর Library section এখানে বসবে, id="library" সহ */}
       </section>
     </main>
   );

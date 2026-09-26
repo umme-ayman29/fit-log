@@ -20,57 +20,57 @@ export default function Navbar({
 
   return (
     <header className="fixed left-0 top-0 z-50 w-full bg-[#0F1115]">
-      <div className="mx-auto flex h-[72px] max-w-[1400px] items-center px-5 sm:px-8">
+      <div className="mx-auto flex h-[64px] max-w-[1400px] items-center justify-between gap-2 px-3 sm:h-[72px] sm:px-5 lg:px-8">
         {/* LEFT - LOGO */}
-        <div className="flex flex-1 items-center">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo.png"
-              alt="FitLog logo"
-              width={38}
-              height={38}
-              className="h-[38px] w-[38px] object-contain"
-              priority
-            />
-            <span className="text-xl font-extrabold tracking-[0.08em] text-white">
-              FITLOG
-            </span>
+        <Link href="/" className="flex shrink-0 items-center gap-2">
+          <Image
+            src="/logo.png"
+            alt="FitLog logo"
+            width={38}
+            height={38}
+            className="h-[28px] w-[28px] object-contain sm:h-[38px] sm:w-[38px]"
+            priority
+          />
+          <span className="text-base font-extrabold tracking-[0.08em] text-white sm:text-xl">
+            FITLOG
+          </span>
+        </Link>
+
+        {/* CENTER - NAV LINKS */}
+        <nav className="flex shrink-0 items-center gap-1 sm:gap-2">
+          <Link
+            href="/#library"
+            className={`whitespace-nowrap rounded-full px-2.5 py-1.5 text-xs font-bold !no-underline transition-colors sm:px-4 sm:text-sm ${
+              isWorkoutsActive
+                ? "bg-[#A3E635]/20 !text-[#A3E635]"
+                : "!text-gray-300 hover:!text-white"
+            }`}
+          >
+            Workouts
           </Link>
-        </div>
 
-       {/* CENTER - NAV LINKS */}
-<nav className="flex flex-none items-center gap-2">
-  <Link
-    href="/#library"
-    className={`rounded-full px-4 py-1.5 text-sm font-bold !no-underline transition-colors ${
-      isWorkoutsActive
-        ? "bg-[#A3E635]/20 !text-[#A3E635]"
-        : "!text-gray-300 hover:!text-white"
-    }`}
-  >
-    Workouts
-  </Link>
-
-  <Link
-    href="/my-plan"
-    className={`rounded-full px-4 py-1.5 text-sm font-bold !no-underline transition-colors ${
-      isMyPlanActive
-        ? "bg-[#A3E635]/20 !text-[#A3E635]"
-        : "!text-gray-300 hover:!text-white"
-    }`}
-  >
-    My Plan
-  </Link>
-</nav>
-
-        {/* RIGHT - PLAN + SAVED */}
-        <div className="flex flex-1 items-center justify-end gap-5">
           <Link
             href="/my-plan"
-            className="flex items-center gap-2"
+            className={`whitespace-nowrap rounded-full px-2.5 py-1.5 text-xs font-bold !no-underline transition-colors sm:px-4 sm:text-sm ${
+              isMyPlanActive
+                ? "bg-[#A3E635]/20 !text-[#A3E635]"
+                : "!text-gray-300 hover:!text-white"
+            }`}
+          >
+            My Plan
+          </Link>
+        </nav>
+
+        {/* RIGHT - PLAN + SAVED */}
+        <div className="flex shrink-0 items-center gap-3 sm:gap-5">
+          <Link
+            href="/my-plan"
+            className="flex items-center gap-1.5 sm:gap-2"
             aria-label="Today's plan count"
           >
-            <span className="text-sm font-medium text-white/80">Plan</span>
+            <span className="hidden text-sm font-medium text-white/80 sm:inline">
+              Plan
+            </span>
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#A3E635] text-xs font-extrabold text-[#0F1115]">
               {planCount}
             </span>
@@ -78,10 +78,12 @@ export default function Navbar({
 
           <Link
             href="/my-plan"
-            className="flex items-center gap-2"
+            className="flex items-center gap-1.5 sm:gap-2"
             aria-label="Saved count"
           >
-            <span className="text-sm font-medium text-white/80">Saved</span>
+            <span className="hidden text-sm font-medium text-white/80 sm:inline">
+              Saved
+            </span>
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-white/30 text-xs font-extrabold text-white">
               {savedCount}
             </span>
