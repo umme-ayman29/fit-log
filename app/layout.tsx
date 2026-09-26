@@ -4,6 +4,8 @@ import "./globals.css";
 import { PlanProvider } from "./components/PlanProvider";
 import Toast from "./components/Toast";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -30,13 +32,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-     <body className="min-h-full flex flex-col">
-  <PlanProvider>
-    <Navbar />
-    <main className="flex-1 pt-[64px] sm:pt-[72px]">{children}</main>
-    <Toast />
-  </PlanProvider>
-</body>
+      <body className="min-h-full flex flex-col">
+        <PlanProvider>
+          <Navbar />
+          <main className="flex-1 pt-[64px] sm:pt-[72px]">{children}</main>
+          <Footer />
+          <Toast />
+        </PlanProvider>
+      </body>
     </html>
   );
 }
