@@ -82,6 +82,10 @@ http://localhost:3000
 ## 📸 Project Preview
 
 FitLog provides a modern and responsive workout library where users can explore workouts, view detailed information, and manage their personal workout plan.
+<img width="100%" alt="FitLog Preview" src="https://github.com/user-attachments/assets/bd887fa3-765e-4d07-a4e0-65a0fbba3c42" />
+
+
+
 
 ## 🔗 Relevant Links
 
